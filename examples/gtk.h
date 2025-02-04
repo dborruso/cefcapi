@@ -6,6 +6,11 @@
 #include "include/capi/cef_app_capi.h"
 
 #include <gtk/gtk.h>
+
+#ifdef __linux__
+#include <gtk/gtkx.h>
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -80,17 +85,15 @@ GtkWidget* create_gtk_window(char* title, int width, int height) {
     // g_signal_connect(window, "focus", G_CALLBACK(&HandleFocus), NULL);
 
     // CEF requires a container. Embedding browser in a top
-    // level window fails.
-    #if GTK_CHECK_VERSION(3,0,0)
-    GtkWidget* vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    #else
-    GtkWidget* vbox = gtk_vbox_new(0, 0);
-    #endif
-    gtk_container_add(GTK_CONTAINER(window), vbox);
+    // level window fails. Also, we need a widget that exposes
+    // a valid XID (like GtkSocket) otherwise the browser
+    // won't be resized properly.
+    GtkWidget* socket = gtk_socket_new();
+    gtk_container_add(GTK_CONTAINER(window), socket);
     
     // Show.
     fix_default_x11_visual(GTK_WIDGET(window));
     gtk_widget_show_all(window);
 
-    return vbox;
+    return socket;
 }
