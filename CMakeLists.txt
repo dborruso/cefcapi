@@ -5,6 +5,9 @@ project(cefcapi C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+# Find required packages
+find_package(X11 REQUIRED)
+
 # Create executable
 add_executable(cefcapi-gtk3 examples/main_linux.c)
 
@@ -15,5 +18,6 @@ target_link_directories(cefcapi-gtk3 PRIVATE
 
 # Link libraries
 target_link_libraries(cefcapi-gtk3 PRIVATE
+    X11
 	cef
 )
