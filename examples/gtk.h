@@ -20,11 +20,7 @@ void app_terminate_signal(int signatl) {
 }
 
 void initialize_gtk() {
-    #if GTK_CHECK_VERSION(3,0,0)
     printf("initialize_gtk %u.%u.%u\n", gtk_get_major_version(), gtk_get_minor_version(), gtk_get_micro_version());
-    #else
-    printf("initialize_gtk 2\n");
-    #endif
     gtk_init(0, NULL);
     signal(SIGINT, app_terminate_signal);
     signal(SIGTERM, app_terminate_signal);
