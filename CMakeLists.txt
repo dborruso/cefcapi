@@ -15,8 +15,8 @@ add_executable(cefcapi-gtk3 examples/main_linux.c)
 
 # Set include directories
 target_include_directories(cefcapi-gtk3 PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/..
+	${CMAKE_CURRENT_SOURCE_DIR}
+	${CMAKE_CURRENT_SOURCE_DIR}/..
 	${GTK3_INCLUDE_DIRS}
 )
 
@@ -27,7 +27,7 @@ target_link_directories(cefcapi-gtk3 PRIVATE
 
 # Link libraries
 target_link_libraries(cefcapi-gtk3 PRIVATE
-    X11
+	X11
 	cef
-    ${GTK3_LIBRARIES}
+	${GTK3_LIBRARIES}
 )
