@@ -7,9 +7,16 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 # Find required packages
 find_package(X11 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
 
 # Create executable
 add_executable(cefcapi-gtk3 examples/main_linux.c)
+
+# Set include directories
+target_include_directories(cefcapi-gtk3 PRIVATE
+	${GTK3_INCLUDE_DIRS}
+)
 
 # Add CEF link directory
 target_link_directories(cefcapi-gtk3 PRIVATE
@@ -20,4 +27,5 @@ target_link_directories(cefcapi-gtk3 PRIVATE
 target_link_libraries(cefcapi-gtk3 PRIVATE
     X11
 	cef
+    ${GTK3_LIBRARIES}
 )
