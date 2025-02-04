@@ -112,7 +112,8 @@ int main(int argc, char** argv) {
     // synchronous version of this function available.
     printf("cef_browser_host_create_browser\n");
     cef_browser_host_create_browser(&window_info, &client, &cef_url,
-                                    &browser_settings, NULL);
+                                    &browser_settings, NULL, NULL);
+
 
     // Message loop. There is also cef_do_message_loop_work()
     // that allow for integrating with existing message loops.

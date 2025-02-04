@@ -166,12 +166,12 @@ void initialize_cef_client(cef_client_t* client) {
     client->get_download_handler = get_download_handler;
     client->get_drag_handler = get_drag_handler;
     client->get_focus_handler = get_focus_handler;
-    client->get_geolocation_handler = get_geolocation_handler;
+    //client->get_geolocation_handler = get_geolocation_handler;
     client->get_jsdialog_handler = get_jsdialog_handler;
     client->get_keyboard_handler = get_keyboard_handler;
     client->get_life_span_handler = get_life_span_handler;  // Implemented!
     client->get_load_handler = get_load_handler;
     client->get_render_handler = get_render_handler;
     client->get_request_handler = get_request_handler;
-    client->on_process_message_received = on_process_message_received;
+    //client->on_process_message_received = on_process_message_received;
 }
