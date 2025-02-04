@@ -1,3 +1,28 @@
+# Modifications from the Original
+
+This fork introduces several key changes compared to the original project:
+
+- The support for GTK2 has been removed.
+- Various fixes have been applied to ensure compatibility on modern systems.
+- The build process has been switched from Make to CMake.
+
+
+## Build Instructions
+
+To compile the project, run the following commands:
+
+```bash
+cmake -S . -B build
+cmake --build build
+```
+
+If you want to run the provided example, execute:
+
+```bash
+cmake --build build -t run
+```
+
+
 # CEF C API (cefcapi)
 
 A simple example on how to use the C API in [Chromium Embedded
