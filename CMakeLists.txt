@@ -20,6 +20,14 @@ target_include_directories(cefcapi-gtk3 PRIVATE
 	${GTK3_INCLUDE_DIRS}
 )
 
+# Add extra compiler flags on Linux systems
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    target_compile_options(cefcapi-gtk3 PRIVATE
+        -Wall 
+        -Werror
+    )
+endif()
+
 # Add CEF link directory
 target_link_directories(cefcapi-gtk3 PRIVATE
 	${CMAKE_CURRENT_SOURCE_DIR}/Release
