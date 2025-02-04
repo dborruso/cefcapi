@@ -42,3 +42,10 @@ set_target_properties(cefcapi-gtk3 PROPERTIES
 	BUILD_WITH_INSTALL_RPATH TRUE
 	INSTALL_RPATH "."
 )
+
+add_custom_target(run
+	COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_CURRENT_SOURCE_DIR}/Release" ${CMAKE_CURRENT_SOURCE_DIR}/Release/cefcapi-gtk3
+	DEPENDS cefcapi-gtk3
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Release
+	COMMENT "Running cefcapi-gtk3 with LD_LIBRARY_PATH set"
+)
