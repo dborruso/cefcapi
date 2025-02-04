@@ -36,3 +36,9 @@ target_link_libraries(cefcapi-gtk3 PRIVATE
 set_target_properties(cefcapi-gtk3 PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Release"
 )
+
+# Add rpath for the executable
+set_target_properties(cefcapi-gtk3 PROPERTIES
+	BUILD_WITH_INSTALL_RPATH TRUE
+	INSTALL_RPATH "."
+)
