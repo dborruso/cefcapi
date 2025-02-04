@@ -1,5 +1,5 @@
 info:
-	@echo "Use 'make gtk2' for GTK+ 2 example, or 'make gtk3' for GTK+ 3 example."
+	@echo "Use 'make gtk3' for GTK+ 3 example."
 
 gtk3:
 	@echo "----------------------------------------------------------------------"
