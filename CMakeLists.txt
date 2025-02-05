@@ -4,6 +4,8 @@ project(cefcapi C)
 # Set C standard
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 
 # Find required packages
 find_package(X11 REQUIRED)
